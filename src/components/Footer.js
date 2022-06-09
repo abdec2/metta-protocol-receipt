@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className="footer" > 
             <div className="div1">
                 <div  className="div2">
-                    <p className="copyright">© {new Date().getFullYear()} Cigar Life NFTs
+                    <p className="copyright">© {new Date().getFullYear()} Metta Protocol Receipt
                     </p>
                     <span className="icons">
                         <a href="https://facebook.com" target="blank" style={{color: 'rgb(107 114 128)'}} className="cursor-pointer" >
