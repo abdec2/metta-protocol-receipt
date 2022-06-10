@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0x2DF3363F17af198D950252f013ffe7895EE87407",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x2df3363f17af198d950252f013ffe7895ee87407",
+  "CONTRACT_ADDRESS": "0xf5135EA29aD9705E9FFFECdBe27BFBd30a60C323",
+  "SCAN_LINK": "https://etherscan.io/address/0xf5135ea29ad9705e9fffecdbe27bfbd30a60c323",
   "NETWORK": {
-    "NAME": "Rinkeby",
+    "NAME": "Mainnet",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
   "NFT_NAME": "Metta Protocol Receipts",
   "SYMBOL": "MEPR",
@@ -13,6 +13,6 @@
   "DISPLAY_COST": 0.01,
   "GAS_LIMIT": 300000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/",
+  "MARKETPLACE_LINK": "https://opensea.io/",
   "SHOW_BACKGROUND": true
 }

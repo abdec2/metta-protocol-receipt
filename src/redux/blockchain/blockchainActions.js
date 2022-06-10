@@ -8,16 +8,6 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 // log
 import { fetchData } from "../data/dataActions";
 
-const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider, // required
-    options: {
-      infuraId: "49b0b733d9d84963919dfd00c75938c3" // required
-    }
-  }
-};
-
-
 
 const connectRequest = () => {
   return {
@@ -56,6 +46,7 @@ export const connect = () => {
       },
     });
     const abi = await abiResponse.json();
+    
     const configResponse = await fetch("/config/config.json", {
       headers: {
         "Content-Type": "application/json",
@@ -63,12 +54,20 @@ export const connect = () => {
       },
     });
     const CONFIG = await configResponse.json();
-    
+        
     try {
+      const providerOptions = {
+        walletconnect: {
+          package: WalletConnectProvider,
+          options: {
+            infuraId: "e1aa2cd2555e457fbcf486d7f51b32a3"
+          }
+        }
+      };
       const web3Modal = new Web3Modal({
         providerOptions // required
       });
-      
+      console.log(web3Modal)
       const provider = await web3Modal.connect();
       const web3 = new Web3(provider);
       Web3EthContract.setProvider(provider);
@@ -92,10 +91,10 @@ export const connect = () => {
           })
         );
         // Add listeners start
-        window.ethereum.on("accountsChanged", (accounts) => {
+        provider.on("accountsChanged", (accounts) => {
           dispatch(updateAccount(accounts[0]));
         });
-        window.ethereum.on("chainChanged", () => {
+        provider.on("chainChanged", () => {
           window.location.reload();
         });
         // Add listeners end

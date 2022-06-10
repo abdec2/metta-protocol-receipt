@@ -144,9 +144,9 @@ function App() {
     SHOW_BACKGROUND: false,
   });
 
-  function isMobileDevice() {
-    return 'ontouchstart' in window || 'onmsgesturechange' in window;
-  }
+  // function isMobileDevice() {
+  //   return 'ontouchstart' in window || 'onmsgesturechange' in window;
+  // }
 
   const claimNFTs = () => {
     let cost = data.cost;
@@ -215,14 +215,16 @@ function App() {
 
   useEffect(() => {
     getConfig();
-    if (isMobileDevice()) {
-      dispatch(connect())
-      getData();
-    }
+    console.log(blockchain)
+    // if (isMobileDevice()) {
+    //   dispatch(connect())
+    //   getData();
+    // }
   }, []);
 
   useEffect(() => {
     getData();
+    console.log(blockchain)
   }, [blockchain.account]);
 
   return (
@@ -318,7 +320,16 @@ function App() {
                       Connect to the {CONFIG.NETWORK.NAME} network
                     </s.TextDescription>
                     <s.SpacerSmall />
-                    { (!isMobileDevice()) ? (
+                    <StyledButton
+                      onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(connect());
+                        getData();
+                      }}
+                    >
+                      CONNECT
+                    </StyledButton>
+                    {/* { (!isMobileDevice()) ? (
                       <StyledButton
                       onClick={(e) => {
                         e.preventDefault();
@@ -334,7 +345,7 @@ function App() {
                       >
                         CONNECT
                       </StyledLink2>
-                    )}
+                    )} */}
                     {blockchain.errorMsg !== "" ? (
                       <>
                         <s.SpacerSmall />
